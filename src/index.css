@@ -20,16 +20,35 @@ code {
 }
 
 .box {
-  max-width: 40rem;
+  max-width: 35rem;
   margin: 0 auto;
   border: .2rem solid #545454;
   border-radius: .2rem;
 }
 
+button {
+  background-color: #545454;
+  color: white;
+  border: none;
+  padding: .3rem .6rem;
+  border-radius: .2rem;
+}
+
+button:hover {
+  background-color: #252525;
+}
 li {
   padding: .3rem .6rem;
 }
 
 li:nth-child(odd) {
   background-color: #d9d9d9;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
 }

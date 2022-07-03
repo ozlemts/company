@@ -7,7 +7,10 @@ export const CompanyTable = () => {
     <div>
       <ul>
         {companyList.map((e) => (
-          <li>{e.name}</li>
+          <li className="flex justify-between">
+            <p>{e.name}</p>
+            <button>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
