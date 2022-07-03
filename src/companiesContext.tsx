@@ -20,14 +20,22 @@ const initialCompanies: Array<companyType> = [
 const CompaniesProvider: React.FC<Props> =
   ({children}) => {
 
-  const [companyList, setCompanyList] = useState(initialCompanies);
+    const [companyList, setCompanyList] = useState(initialCompanies);
 
-  const deleteCompany = (id: number) => {
-    setCompanyList(prevCompany => [...prevCompany]
-      .filter(e => e.id !== id)
-    );
+    const deleteCompany = (id: number) => {
+      setCompanyList(prevCompany => [...prevCompany]
+        .filter(e => e.id !== id)
+      );
+    };
+
+    const addCompany = (name: string) => {
+      const newCompany: companyType = {
+        id: Math.floor(100 + Math.random() * (1000 - 100)), // to do: check uniqueness
+        name: name,
+      };
+      setCompanyList(prevCompany => [...prevCompany, newCompany]);
+    };
+
+    return <CompaniesContext.Provider value={{companyList, deleteCompany, addCompany}}>{children}</CompaniesContext.Provider>;
   };
-
-  return <CompaniesContext.Provider value={{companyList, deleteCompany}}>{children}</CompaniesContext.Provider>;
-};
 export default CompaniesProvider;
