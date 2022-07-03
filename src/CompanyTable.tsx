@@ -13,14 +13,16 @@ export const CompanyTable = () => {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <hr/>
+      <div className="flex justify-between my-1">
         <input type="text"
                placeholder="Search..."
                onChange={(e) => setKeyword(e.target.value)}/>
         <AddCompany/>
       </div>
-      <div className="flex justify-between">
-        <h6>Company Name</h6>
+      <hr/>
+      <div className="flex justify-between my-1">
+        <h3>Company Name</h3>
         <button onClick={sortCompanies}>Sort</button>
       </div>
       <ul>

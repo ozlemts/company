@@ -17,13 +17,15 @@ code {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  text-align: center;
 }
 
 .box {
   max-width: 35rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   border: .2rem solid #545454;
   border-radius: .2rem;
+  padding: 1rem;
 }
 
 button {
@@ -32,11 +34,20 @@ button {
   border: none;
   padding: .3rem .6rem;
   border-radius: .2rem;
+  margin: 0 .2rem;
 }
 
 button:hover {
   background-color: #252525;
 }
+
+input {
+  padding: .4rem .8rem;
+  border: 1.5px solid #7c7c7c;
+  background-color: #ececec;
+  border-radius: .3rem;
+}
+
 li {
   padding: .3rem .6rem;
 }
@@ -45,10 +56,18 @@ li:nth-child(odd) {
   background-color: #d9d9d9;
 }
 
+li:nth-child(even) {
+  background-color: #e8e8e8;
+}
+
 .flex {
   display: flex;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.my-1 {
+  margin: 1rem 0;
 }

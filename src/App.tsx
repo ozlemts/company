@@ -4,7 +4,7 @@ import {CompanyTable} from "./CompanyTable";
 function App() {
   return (
     <div className="box">
-      <h1>Companies Table with TS & React</h1>s
+      <h1 className="my-1">Companies Table with TS & React</h1>
       <CompanyTable/>
     </div>
   );
