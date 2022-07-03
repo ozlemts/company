@@ -17,9 +17,17 @@ const initialCompanies: Array<companyType> = [
   {"id": 901, "name": "Alibaba"}
 ]
 
-const CompaniesProvider: React.FC<Props> = ({children}) => {
+const CompaniesProvider: React.FC<Props> =
+  ({children}) => {
+
   const [companyList, setCompanyList] = useState(initialCompanies);
 
-  return <CompaniesContext.Provider value={{companyList}}>{children}</CompaniesContext.Provider>;
+  const deleteCompany = (id: number) => {
+    setCompanyList(prevCompany => [...prevCompany]
+      .filter(e => e.id !== id)
+    );
+  };
+
+  return <CompaniesContext.Provider value={{companyList, deleteCompany}}>{children}</CompaniesContext.Provider>;
 };
 export default CompaniesProvider;

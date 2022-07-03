@@ -2,14 +2,19 @@ import React from "react";
 import {CompaniesContext} from "./companiesContext";
 
 export const CompanyTable = () => {
-  const { companyList} = React.useContext(CompaniesContext) as CompanyContextType;
+  const {companyList, deleteCompany} = React.useContext(CompaniesContext) as CompanyContextType;
   return (
     <div>
       <ul>
-        {companyList.map((e) => (
-          <li className="flex justify-between">
-            <p>{e.name}</p>
-            <button>Delete</button>
+        {companyList.map((element, index) => (
+          <li key={index} className="flex justify-between">
+            <p>{element.name}</p>
+            <button
+              name="delete"
+              type="submit"
+              onClick={event => deleteCompany(element.id)}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
