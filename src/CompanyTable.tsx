@@ -1,12 +1,30 @@
-import React from "react";
+import React, {useMemo, useState} from "react";
 import {CompaniesContext} from "./companiesContext";
+import {AddCompany} from "./AddCompany";
 
 export const CompanyTable = () => {
-  const {companyList, deleteCompany} = React.useContext(CompaniesContext) as CompanyContextType;
+  const {companyList, deleteCompany, sortCompanies} = React.useContext(CompaniesContext) as CompanyContextType;
+
+  const [keyword, setKeyword] = useState('');
+
+  const filteredCompanies = useMemo(() => {
+    return (companyList.filter(o => o.name.toLowerCase().includes(keyword)));
+  }, [companyList, keyword])
+
   return (
     <div>
+      <div className="flex justify-between">
+        <input type="text"
+               placeholder="Search..."
+               onChange={(e) => setKeyword(e.target.value)}/>
+        <AddCompany/>
+      </div>
+      <div className="flex justify-between">
+        <h6>Company Name</h6>
+        <button onClick={sortCompanies}>Sort</button>
+      </div>
       <ul>
-        {companyList.map((element, index) => (
+        {filteredCompanies.map((element, index) => (
           <li key={index} className="flex justify-between">
             <p>{element.name}</p>
             <button

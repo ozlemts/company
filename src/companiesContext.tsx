@@ -36,6 +36,14 @@ const CompaniesProvider: React.FC<Props> =
       setCompanyList(prevCompany => [...prevCompany, newCompany]);
     };
 
-    return <CompaniesContext.Provider value={{companyList, deleteCompany, addCompany}}>{children}</CompaniesContext.Provider>;
+    const sortCompanies = () => {
+      setCompanyList(prevCompany => [...prevCompany]
+        .sort((a, b) =>
+          (a.name > b.name ? 1 : -1)
+        ));
+    };
+
+    return <CompaniesContext.Provider
+      value={{companyList, deleteCompany, addCompany, sortCompanies}}>{children}</CompaniesContext.Provider>;
   };
 export default CompaniesProvider;
